@@ -4,9 +4,12 @@
   "description": "GP-Eduhub",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "debug": "nodemon --inspect index.js"
+    "start": "node index.js",    
+    "serve": "nodemon index.js",    
+    "client": "pnpm start --prefix client",
+    "clientinstall": "pnpm install --prefix client",
+    "dev": "concurrently \"pnpm run server\" \"pnpm run client\"",
+    "render-postbuild": "PNPM_CONFIG_PRODUCTION=false pnpm install --prefix client && pnpm run build --prefix client"
   },
   "author": "EslamGenedy",
   "license": "ISC",
